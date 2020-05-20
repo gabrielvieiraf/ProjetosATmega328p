@@ -13,8 +13,7 @@ unsigned char digitos[tam_vetor];
 
 int main()
 {
-	char sinal;
-	unsigned char temp_LSB, temp_MSB;
+	unsigned char temp_LSB;
 	unsigned int valor_temp;
 	
 	DDRD = 0xFF; //PORTD como saída
@@ -32,7 +31,6 @@ int main()
 		escreve_byte_1w(0xBE);			//avisa que quer ler a memória
 		
 		temp_LSB = le_byte_1w();		//só interesse em ler os dois bytes da temperatura
-		temp_MSB = le_byte_1w();
 		
 		//conversão do número lido para um valor inteiro sem vírgula (temp_LSB*10/2)
 		valor_temp = 5*temp_LSB;		//retirar a virgula do número e converte, cada bit LSB vale 0,5°C
@@ -54,20 +52,4 @@ int main()
 		cmd_LCD(0x8E,0);
 		cmd_LCD('C',1);
 	}
-}
-//Será Modificado
-void ident_num(unsigned int valor, unsigned char *disp)
-{
-	unsigned char n;
-
-	for(n=0; n<tam_vetor; n++)
-	disp[n] = 0 + conv_ascii;	//limpa vetor para armazenagem dos digitos
-
-	do
-	{
-		*disp = (valor%10) + conv_ascii;	//pega o resto da divisao por 10
-		valor /=10;		//pega o inteiro da divisão por 10
-		disp++;
-
-	}while (valor!=0);
 }
