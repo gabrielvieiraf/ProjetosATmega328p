@@ -16,8 +16,8 @@ unsigned char tempChar[2];
 
 int main(void)
 {
-	DDRD = 0xFF;		//PORTD como saída para pastilha
-	DDRB = 0xFF;		//PORTB como saída para display
+	DDRD = 0xFF;		//PORTD como saÃ­da para pastilha
+	DDRB = 0xFF;		//PORTB como saÃ­da para display
     PORTC = 0xFE;     
     DDRC= 0x00;
 	double tempC;
@@ -30,7 +30,7 @@ int main(void)
     {
 		tempC = ds18b20_gettemp();
 		
-		cmd_LCD(0x81,0); // posição do cursor
+		cmd_LCD(0x81,0); // posiÃ§Ã£o do cursor
 		escreve_LCD("TESTE DE SONDAS:");//Escreve
 	   
         cmd_LCD(0xC9,0);
