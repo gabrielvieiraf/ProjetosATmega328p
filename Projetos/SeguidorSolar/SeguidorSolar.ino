@@ -58,6 +58,26 @@ void AtivaPasso(){
     delay(30);
 }
 
+void ComparaAngulo(LDR_A,LDR_B,pinLDR1,pinLDR2,flag){
+ while ((LDR_A - LDR_B) > 10)
+  {
+    angulo = servo1.read();
+    if (flag==1) {
+    if (((LDR_B - LDR_A) > 5) || (angulo == angulomax)) break;
+    if (angulo < angulomax) {
+      servo1.write(angulo + 1);
+    }
+    }
+    else {
+    if (((LDR1 - LDR2) > 5) || (angulo == angulomin)) break;
+    if (angulo > angulomin) {
+      servo1.write(angulo - 1);
+    }
+    }
+    VerificaAngulo(LDR_A,LDR_B,pinLDR1,pinLDR2,10);
+  }
+}
+
 void loop()
 {
   int angulo = servo1.read();
@@ -68,25 +88,9 @@ void loop()
   
   //CONTROLE DO MOTOR SERVO.
   VerificaAngulo(LDR1,LDR2,pinLDR1,pinLDR2,20);
-  while ((LDR1 - LDR2) > 10)
-  {
-    angulo = servo1.read();
-    if (((LDR2 - LDR1) > 5) || (angulo == angulomax)) break;
-    if (angulo < angulomax) {
-      servo1.write(angulo + 1);
-    }
-    VerificaAngulo(LDR1,LDR2,pinLDR1,pinLDR2,10);
-  }
+  ComparaAngulo(LDR1,LDR2,pinLDR1,pinLDR2,1);
   VerificaAngulo(LDR1,LDR2,pinLDR1,pinLDR2,20);
-  while ((LDR2 - LDR1) > 10)
-  {
-    angulo = servo1.read();
-    if (((LDR1 - LDR2) > 5) || (angulo == angulomin)) break;
-    if (angulo > angulomin) {
-      servo1.write(angulo - 1);
-    }
-   VerificaAngulo(LDR1,LDR2,pinLDR1,pinLDR2,10);
-  }
+  ComparaAngulo(LDR1,LDR2,pinLDR1,pinLDR2,0);
 
   // CONTROLE DO MOTOR DE PASSO.
   
