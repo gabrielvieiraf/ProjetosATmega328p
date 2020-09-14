@@ -3,7 +3,7 @@
 <p> Nesse projeto, desenvolvi um simples testador de sondas de temperatura que recebem dados através de um <strong>sensor DS18B20</strong>.</p>
 
 Utilizei as bibliotecas ```OneWire.h``` para a leitura de sondas e ```LiquidCrystal.h``` para o display. Inicialmente iria usar minhas próprias bibliotecas, mas em virtude do tempo decidi optar pelo menos trabalhoso. 
-O código foi inteiramente desenvolvido na IDE do Arduino, e cumpre com o objetivo de ler o valor de temperatura da sonda com o DS18B20 em modo parasita, bem como identificar o SerialNumber do chip do sensor de temperatura. O modo com que imprimi a ROM do sensor no display, é únicamente por conta da forma com que fazemos o controle desses dispositivos na empresa em que trabalho.
+O código foi inteiramente desenvolvido na IDE do Arduino, e cumpre com o objetivo de ler o valor de temperatura da sonda com o DS18B20 em modo parasita, bem como identificar o SerialNumber do chip do sensor de temperatura.
 
 <p align=center><img src="https://user-images.githubusercontent.com/48156370/86425452-a0266b00-bcbb-11ea-820f-2947eb178781.PNG"></p>
 <p>O sensor DS18B20 pode efetuar leituras com precisão de até ±0,5 ºC, e enviar as informações para o <strong>ATMEGA328p</strong> utilizando a tecnologia 1 wire.</p>
