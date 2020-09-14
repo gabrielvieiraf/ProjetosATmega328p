@@ -1,6 +1,6 @@
 <h1>Projeto Sensor DS18B20 com atmega328P</h1>
 <p> Olá devs, tudo tranquilo?</p>
-<p> Nesse projeto, desenvolvi um simples testador de sondas de temperatura que recebem dados de através de um <strong>sensor DS18B20</strong>.</p>
+<p> Nesse projeto, desenvolvi um simples testador de sondas de temperatura que recebem dados através de um <strong>sensor DS18B20</strong>.</p>
 
 Utilizei as bibliotecas ```OneWire.h``` para a leitura de sondas e ```LiquidCrystal.h``` para o display. Inicialmente iria usar minhas próprias bibliotecas, mas em virtude do tempo decidi optar pelo menos trabalhoso. 
 O código foi inteiramente desenvolvido na IDE do Arduino, e cumpre com o objetivo de ler o valor de temperatura da sonda com o DS18B20 em modo parasita, bem como identificar o SerialNumber do chip do sensor de temperatura. O modo com que imprimi a ROM do sensor no display, é únicamente por conta da forma com que fazemos o controle desses dispositivos na empresa em que trabalho.
